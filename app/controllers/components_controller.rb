@@ -56,7 +56,7 @@ class ComponentsController < ApplicationController
   # DELETE /components/1
   # DELETE /components/1.json
   def destroy
-    @component.destroy
+    @component.destroy!
     respond_to do |format|
       format.html { redirect_to page_components_path(@component.page), notice: 'Component was successfully destroyed.' }
       format.json { head :no_content }
