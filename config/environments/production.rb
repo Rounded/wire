@@ -28,6 +28,9 @@ Rails.application.configure do
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
+  # i need to see this shit
+  config.log_level = :debug
+
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
