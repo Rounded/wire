@@ -1,0 +1,30 @@
+<%= form_for([@component.page, @component], html: { :multipart => true }) do |f| %>
+  <% if @component.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@component.errors.count, "error") %> prohibited this component from being saved:</h2>
+
+      <ul>
+      <% @component.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+    Leave blank if you do not want to update.
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
