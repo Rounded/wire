@@ -16,6 +16,7 @@ class ComponentsController < ApplicationController
   # GET /components/new
   def new
     @component = Component.new
+    @component.page_id = params[:page_id]
   end
 
   # GET /components/1/edit
