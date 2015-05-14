@@ -86,8 +86,8 @@ Rails.application.configure do
       aws_access_key_id: Rails.application.secrets.aws_access_key_id,
       aws_secret_access_key: Rails.application.secrets.aws_secret_access_key,
       provider: 'AWS',
-      region: 'us-west-1',
-      scheme: 'https'
+      region: 'us-east-1',
+      scheme: 'http'
     },
     fog_directory: Rails.application.secrets.s3_bucket_name,
     fog_file: {
@@ -95,5 +95,6 @@ Rails.application.configure do
        'Expires'       => 10.years.from_now.httpdate
      }
   }
+
 
 end

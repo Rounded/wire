@@ -38,6 +38,16 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  
+  # config.paperclip_defaults = {
+  #   :storage => :s3,
+  #   :url => "https://s3.amazonaws.com/roundedwire",
+  #   :s3_credentials => {
+  #     :bucket => Rails.application.secrets.s3_bucket_name,
+  #     :access_key_id => Rails.application.secrets.aws_access_key_id,
+  #     :secret_access_key => Rails.application.secrets.aws_secret_access_key
+  #   }
+  # }
 
   config.paperclip_defaults = {
     :storage => :fog,
@@ -45,8 +55,8 @@ Rails.application.configure do
       aws_access_key_id: Rails.application.secrets.aws_access_key_id,
       aws_secret_access_key: Rails.application.secrets.aws_secret_access_key,
       provider: 'AWS',
-      region: 'us-west-1',
-      scheme: 'https'
+      region: 'us-east-1',
+      scheme: 'http'
     },
     fog_directory: Rails.application.secrets.s3_bucket_name,
     fog_file: {
