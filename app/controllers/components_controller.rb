@@ -31,7 +31,7 @@ class ComponentsController < ApplicationController
     
     respond_to do |format|
       if @component.save
-        format.html { redirect_to page_components_path(@component.page), notice: 'Component was successfully created.' }
+        format.html { redirect_to project_page_components_path(@component.page.project, @component.page), notice: 'Component was successfully created.' }
         format.json { render :show, status: :created, location: @component }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class ComponentsController < ApplicationController
   def update
     respond_to do |format|
       if @component.update(component_params)
-        format.html { redirect_to page_components_path(@component.page), notice: 'Component was successfully updated.' }
+        format.html { redirect_to project_page_components_path(@component.page.project, @component.page), notice: 'Component was successfully updated.' }
         format.json { render :show, status: :ok, location: @component }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class ComponentsController < ApplicationController
   def destroy
     @component.destroy!
     respond_to do |format|
-      format.html { redirect_to page_components_path(@component.page), notice: 'Component was successfully destroyed.' }
+      format.html { redirect_to project_page_components_path(@component.page.project, @component.page), notice: 'Component was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

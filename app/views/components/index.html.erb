@@ -17,8 +17,8 @@
         <td><%= component.name %></td>
         <td><%= component.description %></td>
         <td><img src="<%= component.image.url(:thumb)%>" /></td>
-        <td><%= link_to 'Edit', edit_page_component_path(component.page, component) %></td>
-        <td><%= link_to 'Destroy', page_component_path(component.page, component), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_project_page_component_path(component.page.project, component.page, component) %></td>
+        <td><%= link_to 'Destroy', project_page_component_path(component.page.project, component.page, component), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,5 +26,5 @@
 
 <br>
 
-<%= link_to 'New Component', new_page_component_path %> | 
-<%= link_to 'All Pages', pages_path %>
+<%= link_to 'New Component', new_project_page_component_path %> | 
+<%= link_to 'All Pages', project_pages_path %>
