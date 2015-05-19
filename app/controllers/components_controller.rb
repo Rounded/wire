@@ -5,7 +5,7 @@ class ComponentsController < ApplicationController
   # GET /components.json
   def index
     @page = Page.find(params[:page_id])
-    @components = Component.all
+    @components = Component.where(page_id: params[:page_id])
   end
 
   # GET /components/1
