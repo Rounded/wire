@@ -4,6 +4,7 @@ class ComponentsController < ApplicationController
   # GET /components
   # GET /components.json
   def index
+    @project = Project.find(params[:project_id])
     @page = Page.find(params[:page_id])
     @components = Component.where(page_id: params[:page_id])
   end
