@@ -35,6 +35,7 @@ gem 'aws-sdk', '< 2.0'
 gem 'paper_trail', '~> 4.0.0.beta2' # tracks user changes and versions data models
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'puma'
+gem 'redcarpet'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
