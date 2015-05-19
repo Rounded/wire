@@ -8,7 +8,9 @@
 <% @components.each do |component| %>
     <%= component.name %>
     <%=@markdown.render(component.description).html_safe%>
-    <img src="<%= component.image.url(:thumb)%>" />
+    <% if component.image %>
+      <img src="<%= component.image.url(:thumb)%>" />
+    <% end %>
     <%= link_to 'Edit', edit_project_page_component_path(component.page.project, component.page, component) %>
     <%= link_to 'Destroy', project_page_component_path(component.page.project, component.page, component), method: :delete, data: { confirm: 'Are you sure?' } %>
     <hr />  
