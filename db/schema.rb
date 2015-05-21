@@ -25,16 +25,6 @@ ActiveRecord::Schema.define(version: 20150514144227) do
     t.datetime "image_updated_at"
   end
 
-  create_table "media", force: :cascade do |t|
-    t.integer  "component_id",       limit: 4
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "image_file_name",    limit: 255
-    t.string   "image_content_type", limit: 255
-    t.integer  "image_file_size",    limit: 4
-    t.datetime "image_updated_at"
-  end
-
   create_table "pages", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
