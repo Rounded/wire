@@ -8,13 +8,17 @@
 
 <% @components.each do |component| %>
 <div class="well">
-  <%= component.name %>
+  <h2 class="pull-left"><%= component.name %></h2>
+  <p class="pull-right">
+    <%= link_to 'Edit', edit_project_page_component_path(component.page.project, component.page, component) %>
+    <%= link_to 'Destroy', project_page_component_path(component.page.project, component.page, component), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </p><!-- .pull-right -->
+  <div class="clearfix"></div>
+
   <%=@markdown.render(component.description).html_safe%>
   <% if component.image %>
     <img src="<%= component.image.url(:thumb)%>" />
   <% end %>
-  <%= link_to 'Edit', edit_project_page_component_path(component.page.project, component.page, component) %>
-  <%= link_to 'Destroy', project_page_component_path(component.page.project, component.page, component), method: :delete, data: { confirm: 'Are you sure?' } %>
 </div><!-- .well -->
 <% end %>
 
