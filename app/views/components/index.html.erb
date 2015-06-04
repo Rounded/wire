@@ -3,7 +3,7 @@
 
   <h1 class="pull-left">
     <%= link_to 'All Pages', project_pages_path, class: "btn btn-default" %>
-    <%=@project.name %> <%=@page.name%> Page Components
+    <%=@project.name %> <%=@page.name%> Components
   </h1>
   <p class="pull-right">
     <%= link_to 'New Component', new_project_page_component_path, class: "btn btn-default" %> 
@@ -28,7 +28,9 @@
         </div><!-- .col-md-6 -->
         <div class="col-md-6">
           <% if component.image %>
+            <%= link_to component.image.url(:full) do %>
             <img src="<%= component.image.url(:thumb)%>" />
+            <% end %>
           <% end %>
         </div><!-- .col-md-6 -->
       </div><!-- .row -->
