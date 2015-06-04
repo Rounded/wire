@@ -1,13 +1,15 @@
 <div class="container">
-  <p id="notice"><%= notice %></p>
+  <p class="alert" id="notice"><%= notice %></p>
 
-<h1><%=@project.name %> <%=@page.name%> Page Components</h1>
-<p class="pull-right">
-  <%= link_to 'New Component', new_project_page_component_path, class: "btn btn-default" %> 
-  <%= link_to 'All Pages', project_pages_path, class: "btn btn-default" %>
-</p><!-- .pull-right -->
-<div class="clearfix"></div>
-<hr />
+  <h1 class="pull-left">
+    <%= link_to 'All Pages', project_pages_path, class: "btn btn-default" %>
+    <%=@project.name %> <%=@page.name%> Page Components
+  </h1>
+  <p class="pull-right">
+    <%= link_to 'New Component', new_project_page_component_path, class: "btn btn-default" %> 
+  </p><!-- .pull-right -->
+  <div class="clearfix"></div>
+  <hr />
 
 <% @components.each do |component| %>
 <div class="well">
@@ -15,13 +17,19 @@
   <p class="pull-right">
     <%= link_to 'Edit', edit_project_page_component_path(component.page.project, component.page, component), class: "btn btn-default" %>
     <%= link_to 'Destroy', project_page_component_path(component.page.project, component.page, component), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
-  </p><!-- .pull-right -->
+  </p>
   <div class="clearfix"></div>
 
-  <%=@markdown.render(component.description).html_safe%>
-  <% if component.image %>
-    <img src="<%= component.image.url(:thumb)%>" />
-  <% end %>
+  <div class="row">
+    <div class="col-md-6">
+      <%=@markdown.render(component.description).html_safe%>
+    </div><!-- .col-md-6 -->
+    <div class="col-md-6">
+      <% if component.image %>
+        <img src="<%= component.image.url(:thumb)%>" />
+      <% end %>
+    </div><!-- .col-md-6 -->
+  </div><!-- .row -->
 </div><!-- .well -->
 <% end %>
 
