@@ -10,7 +10,7 @@
   <% @pages.each do |page| %>
   <div class="panel panel-default">
     <div class="panel-body">
-      <h2 class="pull-left"><%= page.name %></td>
+      <h2 class="pull-left"><%= page.name %></h2>
       <div class="pull-right">
         <%= link_to 'Show Components', project_page_components_path(page.project, page), class: "btn btn-default" %>
         <%= link_to 'Destroy', project_page_path(page.project, page), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
