@@ -2,16 +2,19 @@
   <p id="notice"><%= notice %></p>
 
 <h1><%=@project.name %> <%=@page.name%> Page Components</h1>
-<%= link_to 'New Component', new_project_page_component_path %> | 
-<%= link_to 'All Pages', project_pages_path %>
+<p class="pull-right">
+  <%= link_to 'New Component', new_project_page_component_path, class: "btn" %> | 
+  <%= link_to 'All Pages', project_pages_path, class: "btn" %>
+</p><!-- .pull-right -->
+<div class="clearfix"></div>
 <hr />
 
 <% @components.each do |component| %>
 <div class="well">
   <h2 class="pull-left"><%= component.name %></h2>
   <p class="pull-right">
-    <%= link_to 'Edit', edit_project_page_component_path(component.page.project, component.page, component) %>
-    <%= link_to 'Destroy', project_page_component_path(component.page.project, component.page, component), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Edit', edit_project_page_component_path(component.page.project, component.page, component), class: "btn" %>
+    <%= link_to 'Destroy', project_page_component_path(component.page.project, component.page, component), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
   </p><!-- .pull-right -->
   <div class="clearfix"></div>
 
