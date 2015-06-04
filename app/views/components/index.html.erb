@@ -1,23 +1,24 @@
 <div class="container">
   <p class="alert" id="notice"><%= notice %></p>
 
-  <h1 class="pull-left">
-    <%= link_to 'All Pages', project_pages_path, class: "btn btn-default" %>
-    <%=@project.name %> | <%=@page.name%> Components
-  </h1>
-  <p class="pull-right">
-    <%= link_to 'New Component', new_project_page_component_path, class: "btn btn-default" %> 
-  </p><!-- .pull-right -->
-  <div class="clearfix"></div>
-  <hr />
+  <div class="page-header">
+    <h1 class="pull-left">
+      <%= link_to 'All Topics', project_pages_path, class: 'btn btn-default' %>
+      <%=@project.name %> | <%=@page.name%> Components
+    </h1>
+    <p class="pull-right">
+      <%= link_to 'New Component', new_project_page_component_path, class: 'btn btn-default' %> 
+    </p><!-- .pull-right -->
+    <div class="clearfix"></div>
+  </div><!-- .page-header -->
 
 <% @components.each do |component| %>
   <div class="panel panel-default">
     <div class="panel-heading">
       <h2 class="panel-title"><%= component.name %></h2>
       <div class="pull-right">
-        <%= link_to 'Edit', edit_project_page_component_path(component.page.project, component.page, component), class: "btn btn-default" %>
-        <%= link_to 'Destroy', project_page_component_path(component.page.project, component.page, component), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
+        <%= link_to 'Edit', edit_project_page_component_path(component.page.project, component.page, component), class: 'btn btn-default' %>
+        <%= link_to 'Destroy', project_page_component_path(component.page.project, component.page, component), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-link' %>
       </div>
       <div class="clearfix"></div>
     </div><!-- .panel-header -->
@@ -28,7 +29,7 @@
         </div><!-- .col-md-6 -->
         <div class="col-md-6">
           <% if component.image %>
-            <%= link_to component.image.url(:full), target: "_blank" do %>
+            <%= link_to component.image.url(:full), target: '_blank' do %>
             <img src="<%= component.image.url(:thumb)%>" />
             <% end %>
           <% end %>

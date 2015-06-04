@@ -23,10 +23,11 @@
     </div>
     <div class="field">
       <%= f.label :description %><br>
-      <%= f.text_area :description, class: "form-control" %>
+      <%= f.text_area :description, class: "form-control", rows: "20" %>
     </div>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit 'Save', class: "btn btn-primary" %>
+      <%= link_to 'Cancel', project_page_components_path, class: "btn btn-default" %>
     </div>
   <% end %>
 </div><!-- .container -->

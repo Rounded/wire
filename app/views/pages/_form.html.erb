@@ -16,6 +16,7 @@
     <%= f.text_field :name, class: "form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save', class: "btn btn-primary" %>
+    <%= link_to 'Cancel', project_pages_path, class: "btn btn-default" %>
   </div>
 <% end %>

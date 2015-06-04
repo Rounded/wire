@@ -1,12 +1,13 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-  <h1 class="pull-left">All Projects</h1>
-  <div class="pull-right">
-    <%= link_to 'New Project', new_project_path, class: "btn btn-default" %>
-  </div>
-  <div class="clearfix"></div>
-  <hr>
+  <div class="page-header">
+    <h1 class="pull-left">All Projects</h1>
+    <div class="pull-right">
+      <%= link_to 'New Project', new_project_path, class: "btn btn-default" %>
+    </div>
+    <div class="clearfix"></div>
+  </div><!-- .page-header -->
 
   <% @projects.each do |project| %>
   <div class="panel panel-default">
