@@ -28,7 +28,7 @@
         </div><!-- .col-md-6 -->
         <div class="col-md-6">
           <% if component.image %>
-            <%= link_to component.image.url(:full) do %>
+            <%= link_to component.image.url(:full), target: "_blank" do %>
             <img src="<%= component.image.url(:thumb)%>" />
             <% end %>
           <% end %>
