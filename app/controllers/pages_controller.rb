@@ -4,7 +4,8 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    @pages = Page.all
+    @project = Project.find(params[:project_id])
+    @pages = Page.where(project_id: params[:project_id])
   end
 
   # GET /pages/1
@@ -15,6 +16,7 @@ class PagesController < ApplicationController
   # GET /pages/new
   def new
     @page = Page.new
+    @page.project_id = params[:project_id]
   end
 
   # GET /pages/1/edit
@@ -25,10 +27,11 @@ class PagesController < ApplicationController
   # POST /pages.json
   def create
     @page = Page.new(page_params)
+    @page.project_id = params[:project_id]
 
     respond_to do |format|
       if @page.save
-        format.html { redirect_to @page, notice: 'Page was successfully created.' }
+        format.html { redirect_to project_pages_path(@page.project), notice: 'Page was successfully created.' }
         format.json { render :show, status: :created, location: @page }
       else
         format.html { render :new }
@@ -56,7 +59,7 @@ class PagesController < ApplicationController
   def destroy
     @page.destroy
     respond_to do |format|
-      format.html { redirect_to pages_url, notice: 'Page was successfully destroyed.' }
+      format.html { redirect_to project_pages_url, notice: 'Page was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

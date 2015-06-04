@@ -1,8 +1,11 @@
 Rails.application.routes.draw do  
-  resources :pages do
-    resources :components
+  
+  resources :projects do
+    resources :pages do
+      resources :components
+    end
   end
 
-  root 'pages#index'
+  root 'projects#index'
 
 end

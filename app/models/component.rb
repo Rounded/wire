@@ -7,6 +7,6 @@ class Component < ActiveRecord::Base
     url: "/system/:id/:style.:extension"
 
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
-  validates :image, attachment_presence: true
+  validates :image, attachment_presence: true, if: 'image.present?'
 
 end
