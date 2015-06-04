@@ -14,10 +14,12 @@
       <h2 class="pull-left panel-title"><%= project.name %></h2>
       <div class="pull-right">
         <%= link_to 'Show Pages', project_pages_path(project), class: "btn btn-default" %>
+        <%= link_to 'Edit', edit_project_path(project), class: "btn btn-default" %>
         <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
       </div><!-- .pull-right -->
     <div class="clearfix"></div>
     </div><!-- .panel-heading -->
   </div><!-- .panel -->
   <% end %>
+
 </div><!-- .container -->
