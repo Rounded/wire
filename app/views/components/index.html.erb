@@ -12,25 +12,29 @@
   <hr />
 
 <% @components.each do |component| %>
-<div class="well">
-  <h2 class="pull-left"><%= component.name %></h2>
-  <p class="pull-right">
-    <%= link_to 'Edit', edit_project_page_component_path(component.page.project, component.page, component), class: "btn btn-default" %>
-    <%= link_to 'Destroy', project_page_component_path(component.page.project, component.page, component), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
-  </p>
-  <div class="clearfix"></div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title"><%= component.name %></h2>
+      <div class="pull-right">
+        <%= link_to 'Edit', edit_project_page_component_path(component.page.project, component.page, component), class: "btn btn-default" %>
+        <%= link_to 'Destroy', project_page_component_path(component.page.project, component.page, component), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+      </div>
+      <div class="clearfix"></div>
+    </div><!-- .panel-header -->
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-6">
+          <%=@markdown.render(component.description).html_safe%>
+        </div><!-- .col-md-6 -->
+        <div class="col-md-6">
+          <% if component.image %>
+            <img src="<%= component.image.url(:thumb)%>" />
+          <% end %>
+        </div><!-- .col-md-6 -->
+      </div><!-- .row -->
+    </div><!-- .panel-body -->
+  </div><!-- .panel -->
 
-  <div class="row">
-    <div class="col-md-6">
-      <%=@markdown.render(component.description).html_safe%>
-    </div><!-- .col-md-6 -->
-    <div class="col-md-6">
-      <% if component.image %>
-        <img src="<%= component.image.url(:thumb)%>" />
-      <% end %>
-    </div><!-- .col-md-6 -->
-  </div><!-- .row -->
-</div><!-- .well -->
 <% end %>
 
 </div><!-- .container -->
