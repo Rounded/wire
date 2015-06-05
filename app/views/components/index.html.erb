@@ -30,7 +30,7 @@
         <div class="col-md-6">
           <% if component.image %>
             <%= link_to component.image.url(:full), target: '_blank', class: "thumbnail component-image" do %>
-            <img src="<%= component.image.url(:medium)%>" class=""/>
+            <img src="<%= component.image.url(:full)%>" class=""/>
             <% end %>
           <% end %>
         </div><!-- .col-md-6 -->
